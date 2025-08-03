@@ -371,7 +371,7 @@ def scrape(query, category, max_retries=3):
 
             if total_orgs < 10:
                 attempt += 1
-                print(f"Организаций меньше 100. Попытка {attempt} из {max_retries}. Перезапуск...")
+                print(f"Организаций меньше 10. Попытка {attempt} из {max_retries}. Перезапуск...")
                 driver.quit()
                 driver = init_driver()  # Пересоздаем драйвер
                 continue
@@ -412,7 +412,7 @@ def scrape(query, category, max_retries=3):
 
             try:
                 print('Попытка записать данные в файл')
-                df.to_csv(f'output_nastik.csv', index=False, encoding='utf-8', mode='a')
+                df.to_csv(f'output.csv', index=False, encoding='utf-8', mode='a')
 
             except Exception as e:
                 print("Ошибка записи в файл через pandas:", e)
