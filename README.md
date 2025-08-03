@@ -24,3 +24,14 @@ scraper of yandex maps
     - переходим в терминал, в терминале заходим в директорию с парсером (cd scraper)
     - так же, через терминал, запускаем парсер командой: python3 scraper.py
     - после того, как скрипт отработает, в директории появится файл с названием, которое мы определили в пункте 1 
+
+5. Обработка полученных данных
+
+    - переходим в файл jupyter notebook (scraper.ipynb)
+    - запускаем локальную spark-сессию в первой ячейке (запускаем первую ячейку)
+    - читаем полученный файл                
+            (table_from_file = spark.read.csv('файл.csv', header=True)
+    - обрабатываем данные
+             filtered_table = table_from_file.select('column1', 'column2').orderBy('column3')
+    - сохраняем результат                              
+             filtered_table.toPandas().to_csv('filtered_table.csv', index=False))
